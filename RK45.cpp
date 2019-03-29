@@ -4,8 +4,8 @@ using namespace Eigen;
 
 Eigen::VectorXd RK45(Eigen::VectorXd y, double t, double T, std::function<Eigen::VectorXd(const Eigen::VectorXd&, const double&)> f, double tol, double smin, double smax)
 {
-	 VectorXd k1, k2, k3, k4, k5, k6, R, y_ = y;
-	double h = std::min(0.05,std::abs(T-t));
+	VectorXd k1, k2, k3, k4, k5, k6, R, y_ = y;
+	double h = 0.05;
 	while (true) {
 		if (t + h > T)
 			h = T - t;
